@@ -1,0 +1,121 @@
+.focus-in-expand {
+  animation: focus-in-expand 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  @supports (-webkit-animation: none) {
+    -webkit-animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+}
+
+@-webkit-keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: 'Gotham HTF';
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+}
+
+@font-face {
+    font-family: 'Gotham HTF';
+    src: url('./fonts/gotham-htf-ultra.woff2') format('woff2'),
+    url('./fonts/gotham-htf-ultra.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham HTF';
+    src: url('./fonts/gotham-htf-black.woff2') format('woff2'),
+    url('./fonts/gotham-htf-black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham HTF';
+    src: url('./fonts/gotham-htf-bold.woff2') format('woff2'),
+    url('./fonts/gotham-htf-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham HTF';
+    src: url('./fonts/gotham-htf-medium.woff2') format('woff2'),
+    url('./fonts/gotham-htf-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham HTF';
+    src: url('./fonts/gotham-htf-book.woff2') format('woff2'),
+    url('./fonts/gotham-htf-book.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham HTF';
+    src: url('./fonts/gotham-htf-light.woff2') format('woff2'),
+    url('./fonts/gotham-htf-light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham HTF';
+    src: url('./fonts/gotham-htf-thin.woff2') format('woff2'),
+    url('./fonts/gotham-htf-thin.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
