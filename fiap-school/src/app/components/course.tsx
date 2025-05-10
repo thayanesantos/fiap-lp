@@ -1,34 +1,93 @@
+'use client'
 import Image from "next/image";
-const Courses = () => {
-    return(
-        <>
-            <h1>COURSES SECTION</h1>
-            <div className="flex gap-4 items-center flex-col sm:flex-row">
-            <a
-              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+import { useState } from 'react';
+
+
+const CourseItem = ({ id, title, children, defaultExpanded = false }) => {
+  const [expanded, setExpanded] = useState(defaultExpanded);
+  return (
+    <>
+      {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <p>Cursos</p>
+        <p>Cursos de Curta Duramção</p>
+      </div> */}
+      <div className="py-2">
+        <h2>
+          <button
+            id={`course-title-${id}`}
+            type="button"
+            className="flex items-center justify-between w-full text-left font-semibold py-2 "
+            onClick={() => setExpanded(!expanded)}
+            aria-expanded={expanded}
+            aria-controls={`course-text-${id}`}
+          >
+            <span className="uppercase divide-y divide-slate-200">{title}</span>
+            <svg
+              className="fill-indigo-500 shrink-0 ml-8"
+              width="16"
+              height="16"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              {/* <Image
-                className="dark:invert"
-                src="https://fakeimg.pl/20x20"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              /> */}
-              Deploy now
-            </a>
-            <a
-              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read our docs
-            </a>
+              <rect
+                y="7"
+                width="16"
+                height="2"
+                rx="1"
+                className={`transform origin-center transition duration-200 ease-out ${expanded ? 'rotate-180' : ''}`}
+              />
+              <rect
+                y="7"
+                width="16"
+                height="2"
+                rx="1"
+                className={`transform origin-center rotate-90 transition duration-200 ease-out ${expanded ? 'rotate-180' : ''}`}
+              />
+            </svg>
+          </button>
+        </h2>
+        <div
+          id={`course-text-${id}`}
+          role="region"
+          aria-labelledby={`course-title-${id}`}
+          className={`divide-y divide-slate-200 grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out ${expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+        >
+          <div className="overflow-hidden divide-y divide-slate-200">
+            <p className="pb-3 divide-y divide-slate-200">{children}</p>
           </div>
-        </>
-    )
-}
-export default Courses;
+        </div>
+      </div>
+    </>
+  )
+};
+const Accordion = () => {
+  return (
+    <div className="divide-slate-100 text-white px-10">
+      <h4 className="font-bold">Cursos</h4>
+      <p className="text-fiap-pink">Cursos de Curta Duração</p>
+
+      <CourseItem id="01" title="TECNOLOGIA" >
+        <span className="uppercase">remoto • live</span>
+        <p>Big Data Ecosystem</p>
+        
+        <span className="uppercase">remoto • live</span>
+        <p>Creating Dashboards for BI</p>
+        
+        <span className="uppercase">remoto • live + MULTIMÍDIA</span>
+        <p>Big Data Science - Machine Learning & Data Mining</p>
+        
+        <span className="uppercase">remoto • live</span>
+        <p>Storytelling</p>
+       
+
+      </CourseItem>
+      <CourseItem id="02" title="INOVAÇÃO">
+        <span>remoto • live + MULTIMÍDIA</span>
+        <p>2</p>
+      </CourseItem>
+      <CourseItem id="03" title="NEGÓCIOS">
+        If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.
+      </CourseItem>
+    </div>
+  );
+};
+export default Accordion;

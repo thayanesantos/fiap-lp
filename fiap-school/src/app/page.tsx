@@ -1,8 +1,8 @@
 import Header from "./components/header";
 import Intro from "./components/intro";
-import Form from "./components/form";
+// import Form from "./components/form";
 import Courses from "./components/course";
-import Faq from "./components/faq";
+// import Faq from "./components/faq";
 import './styles.scss'
 
 export default function Home() {
@@ -10,21 +10,17 @@ export default function Home() {
     <>
       <div className="z-60 bg-black items-center justify-items-center min-h-screen sm:p-20">
         <main className="flex flex-col">
-          <section className="pt-[1em] pb-[5em] m-5 flex">
+          <section className="">
             <Header />
           </section>
-          <section className="2xl:py-24 2xl:my-20">
+          <section className="">
             <Intro />
             <br /><br />
           </section>
-          {/* <section>
-            <Form />
-            <br /><br />
-          </section> */}
-          {/* <section>
+          <section>
             <Courses />
             <br /><br />
-          </section> */}
+          </section>
           {/* <section>
             <Faq />
             <br /><br />

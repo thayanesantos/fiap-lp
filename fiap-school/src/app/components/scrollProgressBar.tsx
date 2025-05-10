@@ -17,7 +17,7 @@ const ScrollProgressBar = () => {
         return () => { window.removeEventListener("scroll", scrollListener);};
     }, []);
     return (
-        <div className="fixed top-0 left-0 h-1 bg-fiap-pink" style={{ width: `${scrollProgress}%` }}/>
+        <div className="z-50 fixed top-0 left-0 h-1 bg-fiap-pink" style={{ width: `${scrollProgress}%` }}/>
     )
 }
 export default ScrollProgressBar
